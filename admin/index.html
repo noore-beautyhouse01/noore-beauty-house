@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NOORÉ — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="loginView" class="auth-wrap">
+    <form id="loginForm" class="auth-card">
+      <div class="eyebrow">NOORÉ / PRIVATE ADMIN</div>
+      <h1>Welcome <i>back.</i></h1>
+      <p>Sign in to manage appointment requests.</p>
+      <label>Email<input id="email" type="email" required autocomplete="username"></label>
+      <label>Password<input id="password" type="password" required autocomplete="current-password"></label>
+      <button>Enter dashboard ↗</button>
+      <div id="loginMsg" class="msg"></div>
+    </form>
+  </div>
+
+  <main id="appView" class="app hidden">
+    <header class="topbar">
+      <div><strong>NOORÉ</strong><span>BEAUTY HOUSE / ADMIN</span></div>
+      <button id="logout" class="ghost">Log out</button>
+    </header>
+
+    <section class="dashboard-head">
+      <div><div class="eyebrow">APPOINTMENTS</div><h1>Today, <i>beautifully organised.</i></h1></div>
+      <button id="refresh" class="dark-btn">Refresh ↻</button>
+    </section>
+
+    <section class="stats">
+      <article><span>Total</span><strong id="total">0</strong></article>
+      <article><span>Pending</span><strong id="pending">0</strong></article>
+      <article><span>Confirmed</span><strong id="confirmed">0</strong></article>
+      <article><span>Completed</span><strong id="completed">0</strong></article>
+    </section>
+
+    <section class="toolbar">
+      <input id="search" placeholder="Search name, phone or service…">
+      <select id="statusFilter"><option value="">All status</option><option>pending</option><option>confirmed</option><option>completed</option><option>cancelled</option></select>
+      <input id="dateFilter" type="date">
+      <button id="clearFilters" class="ghost">Clear</button>
+    </section>
+
+    <section class="table-card">
+      <div id="error" class="msg"></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Guest</th><th>Service</th><th>Visit</th><th>Notes</th><th>Status</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="admin-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
